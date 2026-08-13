@@ -5,3 +5,6 @@
 .envelope .envelope-front{top:auto!important;bottom:0!important;height:106px!important;min-height:0!important;max-height:106px!important;background:linear-gradient(145deg,var(--env-light),var(--env-mid))!important}
 .envelope .wax{top:66px!important}
 .paper>p a{color:#9b4165;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+.envelope.has-photo .letter-mini{display:block!important;z-index:5!important;width:72px!important;height:82px!important;left:17px!important;top:13px!important;padding:5px!important;border-radius:5px!important;background:#fff8f5!important;box-shadow:0 7px 16px #32152566!important;transform:rotate(-7deg)!important;overflow:hidden!important}
+.envelope.has-photo .letter-mini img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;border-radius:2px!important}
+.envelope.has-photo .wax{z-index:6!important}
