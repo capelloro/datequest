@@ -11,6 +11,7 @@
   <title>DateQuest — послание из будущего 💌</title>
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./enhancements.css">
 </head>
 <body data-theme="tender">
   <div class="ambient" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -29,7 +30,7 @@
           <a class="button primary" href="#studio">Создать приглашение <span>→</span></a>
           <button class="button secondary" id="demo" type="button">Посмотреть демо</button>
         </div>
-        <div class="trust-row" aria-label="Преимущества"><span>✦ Без аккаунта</span><span>✦ Меньше минуты</span><span>✦ Любой ответ — нормален</span></div>
+        <div class="trust-row" aria-label="Преимущества"><span>✦ Без аккаунта</span><span>✦ 3–4 минуты игры</span><span>✦ Ответ придёт автору</span></div>
       </div>
       <div class="world-card" aria-label="Волшебный мир DateQuest">
         <img src="./assets/datequest-world.png" alt="Светящийся конверт в маленьком ночном мире">
@@ -42,39 +43,60 @@
       <div class="section-heading"><p class="kicker">Твоя история</p><h2>Добавь детали.<br>Магию мы уже собрали.</h2></div>
       <div class="studio-grid">
         <form class="editor glass" id="editor" autocomplete="off">
-          <div class="step-label"><span>01</span> Главное</div>
+          <div class="step-label"><span>01</span> Выбери готовую идею</div>
+          <div class="idea-picker" id="ideaPicker" role="group" aria-label="Готовые идеи свиданий">
+            <button type="button" class="idea active" data-idea="coffee"><b>☕</b><span>Кофе + прогулка<small>Уютно · 2 часа</small></span></button>
+            <button type="button" class="idea" data-idea="sunset"><b>🌇</b><span>Закат с термосом<small>Романтично · недорого</small></span></button>
+            <button type="button" class="idea" data-idea="museum"><b>🖼️</b><span>Музейный квест<small>Любопытно · в помещении</small></span></button>
+            <button type="button" class="idea" data-idea="picnic"><b>🧺</b><span>Секретный пикник<small>Тепло · сюрприз</small></span></button>
+            <button type="button" class="idea" data-idea="cinema"><b>🎬</b><span>Кино наоборот<small>Сначала десерт, потом фильм</small></span></button>
+            <button type="button" class="idea" data-idea="night"><b>🔭</b><span>Ночь и звёзды<small>Необычно · атмосферно</small></span></button>
+            <button type="button" class="idea" data-idea="food"><b>🥟</b><span>Гастро-маршрут<small>3 места · 1 блюдо в каждом</small></span></button>
+            <button type="button" class="idea" data-idea="creative"><b>🎨</b><span>Творческий вечер<small>Глина, краски или свечи</small></span></button>
+            <button type="button" class="idea" data-idea="active"><b>⛸️</b><span>Активная авантюра<small>Каток, ролики или боулинг</small></span></button>
+            <button type="button" class="idea" data-idea="book"><b>📚</b><span>Книжное свидание<small>Выбрать книги друг другу</small></span></button>
+            <button type="button" class="idea" data-idea="photo"><b>📷</b><span>Фотоохота<small>7 кадров по секретному списку</small></span></button>
+            <button type="button" class="idea" data-idea="custom"><b>✦</b><span>Своя идея<small>Начать с чистого листа</small></span></button>
+          </div>
+          <div class="step-label"><span>02</span> Главное</div>
           <div class="field-row"><label>Твоё имя<input id="from" maxlength="40" value="Маша"></label><label>Для кого<input id="to" maxlength="40" value="Саша"></label></div>
           <label>Личное послание<textarea id="message" maxlength="280">Мне хорошо с тобой, и я хочу провести вместе ещё один красивый вечер.</textarea><small><span id="messageCount">0</span>/280</small></label>
           <div class="field-row"><label>Идея места<input id="place" maxlength="80" value="кофейня с видом на город"></label><label>Когда<input id="date" type="datetime-local"></label></div>
-          <div class="step-label"><span>02</span> Настроение</div>
+          <div class="step-label"><span>03</span> Настроение</div>
           <div class="themes" role="group" aria-label="Настроение приглашения">
             <button type="button" class="theme active" data-theme="tender" aria-pressed="true"><b>◉</b><span>Нежно<small>Тепло и искренне</small></span></button>
             <button type="button" class="theme" data-theme="playful" aria-pressed="false"><b>✦</b><span>Игриво<small>Легко и смело</small></span></button>
             <button type="button" class="theme" data-theme="mystery" aria-pressed="false"><b>☾</b><span>Тайна<small>Ночь и загадки</small></span></button>
           </div>
           <label>Маленькая улика<select id="clue"><option value="coffee">Аромат кофе</option><option value="city">Огни города</option><option value="cinema">Кино после титров</option><option value="surprise">Полный сюрприз</option></select></label>
+          <div class="step-label"><span>04</span> Куда прислать ответ</div>
+          <div class="field-row"><label>Канал<select id="replyChannel"><option value="whatsapp">WhatsApp</option><option value="email">Email</option><option value="telegram">Telegram</option></select></label><label>Телефон или адрес<input id="replyContact" maxlength="100" value="" placeholder="+79990000000"></label></div>
+          <p class="field-help" id="contactHelp">Получатель откроет ваш чат WhatsApp с готовым ответом и сам подтвердит отправку.</p>
           <div class="privacy-note"><span>⌁</span><p><strong>Личные детали живут в ссылке.</strong> Не указывай домашний адрес или то, чем не готов(а) поделиться с получателем.</p></div>
           <button class="button primary full" id="copy" type="button">Скопировать волшебную ссылку <span>↗</span></button>
           <div class="status" id="builderStatus" role="status" aria-live="polite"></div>
         </form>
 
         <div class="preview-wrap"><div class="preview-label"><span>Живое превью</span><button id="restart" type="button">Начать сначала ↻</button></div><div class="device"><div class="device-camera"></div><div class="quest" id="quest">
-          <div class="quest-top"><span class="mini-brand">DQ</span><div class="progress" aria-label="Прогресс"><i class="on"></i><i></i><i></i><i></i></div><span id="stepText">1 / 4</span></div>
+          <div class="quest-top"><span class="mini-brand">DQ</span><div class="progress" aria-label="Прогресс"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span id="stepText">1 / 7</span></div>
           <section class="scene active" data-scene="0">
             <div class="envelope" aria-hidden="true"><div class="envelope-back"></div><div class="letter-mini">для тебя<br><span>♥</span></div><div class="envelope-front"></div><div class="envelope-flap"></div><div class="wax">DQ</div></div>
             <p class="eyebrow">Личное приглашение от <span id="introFrom"></span></p><h2 id="introTitle"></h2><p>Никаких входов, камеры или оплаты. Только одна маленькая история.</p>
             <button class="game-button hot" data-next type="button">Открыть послание <span>→</span></button><button class="text-button" data-decline type="button">Не сейчас</button>
           </section>
           <section class="scene" data-scene="1"><div class="clue-orbit"><span id="clueIcon">☕</span><i></i><i></i><i></i></div><p class="eyebrow">Первая улика</p><h2>На что похож этот вечер?</h2><p>Здесь нет неправильного ответа — выбери ощущение, которое тебе ближе.</p><div class="clue-options"><button type="button" data-feel="уютно">Уютно</button><button type="button" data-feel="спонтанно">Спонтанно</button><button type="button" data-feel="загадочно">Загадочно</button></div><button class="text-button" data-next type="button">Пропустить →</button></section>
-          <section class="scene" data-scene="2"><div class="paper"><p class="paper-mark">✦ &nbsp; ПОСЛАНИЕ &nbsp; ✦</p><h2 id="letterTo"></h2><p id="letterText"></p><div class="details"><span id="placePill"></span><span id="datePill"></span></div><small>Точные детали всегда можно уточнить вместе.</small></div><button class="game-button hot" data-next type="button">Ответить честно <span>→</span></button></section>
-          <section class="scene" data-scene="3"><div class="soft-heart">♥</div><p class="eyebrow">Самое главное</p><h2>Хочешь встретиться?</h2><p>Выбирай свободно. Здесь нет «правильной» кнопки.</p><div class="rsvp"><button class="game-button hot" data-answer="yes" type="button">Да, с радостью</button><button class="game-button pale" data-answer="maybe" type="button">Давай другой вариант</button><button class="game-button plain" data-answer="no" type="button">Спасибо, но не смогу</button></div></section>
-          <section class="scene final" data-scene="4"><div class="final-symbol" id="finalSymbol">✦</div><p class="eyebrow" id="finalEyebrow">Ответ готов</p><h2 id="finalTitle"></h2><p id="finalCopy"></p><div class="reply-card"><span>Сообщение для <b id="replyTo"></b></span><p id="replyText"></p></div><button class="game-button hot" id="shareReply" type="button">Отправить ответ <span>↗</span></button><button class="text-button" id="copyReply" type="button">Скопировать текст</button><small class="honest-note">Ответ не отправляется автоматически.</small></section>
+          <section class="scene" data-scene="2"><div class="constellation"><span>✦</span><i></i><i></i><i></i><i></i></div><p class="eyebrow">Капсула времени</p><h2>Возьми с собой одно настроение</h2><p>Оно станет маленьким правилом вашего вечера.</p><div class="choice-stack"><button type="button" data-token="без спешки">Без спешки</button><button type="button" data-token="больше смеяться">Больше смеяться</button><button type="button" data-token="пробовать новое">Пробовать новое</button></div></section>
+          <section class="scene" data-scene="3"><p class="eyebrow">Маршрут проявляется</p><h2 id="ideaTitle">Кофе + прогулка</h2><div class="route-card"><b id="ideaIcon">☕</b><p id="ideaDescription"></p><div class="route-line"><i></i><i></i><i></i></div></div><button class="game-button hot" data-next type="button">Посмотреть послание <span>→</span></button></section>
+          <section class="scene" data-scene="4"><div class="paper"><p class="paper-mark">✦ &nbsp; ПОСЛАНИЕ &nbsp; ✦</p><h2 id="letterTo"></h2><p id="letterText"></p><div class="details"><span id="placePill"></span><span id="datePill"></span></div><small>Точные детали всегда можно уточнить вместе.</small></div><button class="game-button hot" data-next type="button">Ещё один выбор <span>→</span></button></section>
+          <section class="scene" data-scene="5"><div class="soft-heart">◇</div><p class="eyebrow">Твой штрих к плану</p><h2>Что обязательно добавить?</h2><p>Выбор попадёт в ответ автору приглашения.</p><div class="choice-stack"><button type="button" data-extra="десерт">Что-нибудь вкусное</button><button type="button" data-extra="музыку">Музыку</button><button type="button" data-extra="маленький сюрприз">Маленький сюрприз</button><button type="button" data-extra="ничего — план идеален">Ничего, план идеален</button></div></section>
+          <section class="scene" data-scene="6"><div class="soft-heart">♥</div><p class="eyebrow">Самое главное</p><h2>Хочешь встретиться?</h2><p>Выбирай свободно. Здесь нет «правильной» кнопки.</p><div class="rsvp"><button class="game-button hot" data-answer="yes" type="button">Да, с радостью</button><button class="game-button pale" data-answer="maybe" type="button">Давай другой вариант</button><button class="game-button plain" data-answer="no" type="button">Спасибо, но не смогу</button></div></section>
+          <section class="scene final" data-scene="7"><div class="final-symbol" id="finalSymbol">✦</div><p class="eyebrow" id="finalEyebrow">Ответ готов</p><h2 id="finalTitle"></h2><p id="finalCopy"></p><div class="reply-card"><span>Сообщение для <b id="replyTo"></b></span><p id="replyText"></p></div><a class="game-button hot answer-link" id="sendDirect" href="#" target="_blank" rel="noopener">Отправить автору <span>↗</span></a><button class="game-button pale" id="shareReply" type="button">Другой мессенджер</button><button class="text-button" id="copyReply" type="button">Скопировать текст</button><small class="honest-note">Сообщение отправится только после вашего подтверждения в мессенджере.</small></section>
         </div></div></div>
       </div>
     </section>
   </main>
   <footer><a class="brand" href="./"><span>DQ</span>DateQuest</a><p>Маленькие истории для настоящих встреч.</p><button id="privacyFooter" type="button">Приватность</button></footer>
-  <dialog id="privacyDialog"><button class="dialog-close" id="privacyClose" aria-label="Закрыть">×</button><p class="kicker">Честно о данных</p><h2>Никаких скрытых шагов.</h2><p>DateQuest работает прямо в браузере. Приглашение кодируется в ссылке — это не шифрование. Любой, у кого есть ссылка, сможет прочитать её содержимое.</p><ul><li>Мы не просим аккаунт, камеру или геолокацию.</li><li>Ответ не уходит автоматически: получатель сам отправляет его через мессенджер.</li><li>Не добавляйте домашний адрес и чувствительные данные.</li></ul><button class="button primary full" id="privacyDone">Понятно</button></dialog>
+  <dialog id="privacyDialog"><button class="dialog-close" id="privacyClose" aria-label="Закрыть">×</button><p class="kicker">Честно о данных</p><h2>Никаких скрытых шагов.</h2><p>DateQuest работает прямо в браузере. Приглашение кодируется в ссылке — это не шифрование. Любой, у кого есть ссылка, сможет прочитать её содержимое.</p><ul><li>Мы не просим аккаунт, камеру или геолокацию.</li><li>Контакт автора нужен только для кнопки ответа и также находится в ссылке.</li><li>Получатель видит готовый текст и сам подтверждает отправку.</li><li>Не добавляйте домашний адрес и чувствительные данные.</li></ul><button class="button primary full" id="privacyDone">Понятно</button></dialog>
   <canvas id="confetti" aria-hidden="true"></canvas>
   <script src="./app.js" defer></script>
 </body>
