@@ -4,3 +4,4 @@
 .envelope .envelope-flap{height:92px!important;background:linear-gradient(155deg,var(--env-light),var(--env-mid))!important;filter:none!important}
 .envelope .envelope-front{top:auto!important;bottom:0!important;height:106px!important;min-height:0!important;max-height:106px!important;background:linear-gradient(145deg,var(--env-light),var(--env-mid))!important}
 .envelope .wax{top:66px!important}
+.paper>p a{color:#9b4165;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
