@@ -113,8 +113,8 @@
           <div class="step-label" id="replySetup"><span>04</span> Куда прислать ответ</div>
           <div class="field-row"><label>Канал<select id="replyChannel"><option value="whatsapp">WhatsApp</option><option value="email">Email</option><option value="telegram">Telegram</option></select></label><label>Телефон или адрес<input id="replyContact" maxlength="100" value="" placeholder="+79990000000"></label></div>
           <p class="field-help" id="contactHelp">Получатель откроет ваш чат WhatsApp с готовым ответом и сам подтвердит отправку.</p>
-          <div class="privacy-note"><span>⌁</span><p><strong>Личные детали живут в ссылке.</strong> Не указывай домашний адрес или то, чем не готов(а) поделиться с получателем.</p></div>
-          <button class="button primary full" id="copy" type="button">Скопировать волшебную ссылку <span>↗</span></button>
+          <div class="privacy-note"><span>⌁</span><p><strong>Личные детали живут в ссылке.</strong> При сокращении полная ссылка, включая текст и фото, передаётся сервису Яндекс Кликер. Не указывай данные, которыми не готов(а) поделиться.</p></div>
+          <button class="button primary full" id="copy" type="button">Создать короткую ссылку <span>↗</span></button>
           <div class="status" id="builderStatus" role="status" aria-live="polite"></div>
           </div>
           <div class="builder-navigation"><button type="button" class="button secondary" id="builderPrev">← Назад</button><span id="builderStepLabel">Шаг 1 из 4</span><button type="button" class="button primary" id="builderNext">Дальше →</button></div>
@@ -149,6 +149,6 @@
   <footer><a class="brand" href="./"><span>DQ</span>DateQuest</a><p>Маленькие истории для настоящих встреч.</p><button id="privacyFooter" type="button">Приватность</button></footer>
   <dialog id="privacyDialog"><button class="dialog-close" id="privacyClose" aria-label="Закрыть">×</button><p class="kicker">Честно о данных</p><h2>Никаких скрытых шагов.</h2><p>DateQuest работает прямо в браузере. Приглашение кодируется в ссылке — это не шифрование. Любой, у кого есть ссылка, сможет прочитать её содержимое.</p><ul><li>Мы не просим аккаунт, камеру или геолокацию.</li><li>Контакт автора нужен только для кнопки ответа и также находится в ссылке.</li><li>Получатель видит готовый текст и сам подтверждает отправку.</li><li>Не добавляйте домашний адрес и чувствительные данные.</li></ul><button class="button primary full" id="privacyDone">Понятно</button></dialog>
   <canvas id="confetti" aria-hidden="true"></canvas>
-  <script src="./app.js?v=20260813-2" defer></script>
+  <script src="./app.js?v=20260813-3" defer></script>
 </body>
 </html>
