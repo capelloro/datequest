@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="./builder.css">
   <link rel="stylesheet" href="./desktop-wizard.css">
   <link rel="stylesheet" href="./envelope-fix.css">
+  <link rel="stylesheet" href="./message-cards.css">
 </head>
 <body data-theme="tender">
   <div class="ambient" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -77,9 +78,12 @@
           <div class="field-row"><label>Не раньше<input id="dateFrom" type="date"></label><label>Не позже<input id="dateTo" type="date"></label></div><p class="field-help">Получатель выберет точные дату и время внутри этого периода.</p>
           <div class="step-label"><span>01</span> Настроение конверта</div>
           <div class="themes" role="group" aria-label="Настроение приглашения">
-            <button type="button" class="theme active" data-theme="tender" aria-pressed="true"><b>◉</b><span>Нежно<small>Тепло и искренне</small></span></button>
-            <button type="button" class="theme" data-theme="playful" aria-pressed="false"><b>✦</b><span>Игриво<small>Легко и смело</small></span></button>
-            <button type="button" class="theme" data-theme="mystery" aria-pressed="false"><b>☾</b><span>Тайна<small>Ночь и загадки</small></span></button>
+            <button type="button" class="theme active" data-theme="tender" aria-pressed="true"><b>♥</b><span>Искренне<small>«У меня для тебя кое-что тёплое»</small></span></button>
+            <button type="button" class="theme" data-theme="playful" aria-pressed="false"><b>✦</b><span>С улыбкой<small>«Кажется, намечается авантюра»</small></span></button>
+            <button type="button" class="theme" data-theme="mystery" aria-pressed="false"><b>☾</b><span>Загадочно<small>«Послание из нашего будущего»</small></span></button>
+            <button type="button" class="theme" data-theme="bold" aria-pressed="false"><b>⚡</b><span>Смело<small>«Отложи планы — есть идея лучше»</small></span></button>
+            <button type="button" class="theme" data-theme="cozy" aria-pressed="false"><b>☕</b><span>Уютно<small>«Давай исчезнем от суеты»</small></span></button>
+            <button type="button" class="theme" data-theme="minimal" aria-pressed="false"><b>○</b><span>Просто<small>«Есть предложение. Откроешь?»</small></span></button>
           </div>
           <label>Маленькая улика<select id="clue"><option value="coffee">Аромат кофе</option><option value="city">Огни города</option><option value="cinema">Кино после титров</option><option value="surprise">Полный сюрприз</option></select></label>
           </div>
@@ -97,7 +101,7 @@
         <div class="preview-wrap"><div class="preview-label"><span>Живое превью</span><button id="restart" type="button">Начать сначала ↻</button></div><div class="device"><div class="device-camera"></div><div class="quest" id="quest">
           <div class="quest-top"><span class="mini-brand">DQ</span><div class="progress" aria-label="Прогресс"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span id="stepText">1 / 7</span></div>
           <section class="scene active" data-scene="0">
-            <div class="envelope" aria-hidden="true"><div class="envelope-back"></div><div class="letter-mini"><img id="coverPreview" alt=""><span id="coverFallback">для тебя<br>♥</span></div><div class="envelope-front"></div><div class="envelope-flap"></div><div class="wax">DQ</div></div>
+            <div class="envelope" aria-hidden="true"><div class="envelope-back"></div><div class="letter-mini"><img id="coverPreview" alt=""><span id="coverFallback">для тебя<br>♥</span></div><div class="envelope-front"></div><div class="envelope-flap"></div><div class="wax" id="waxMark">♥</div></div>
             <p class="eyebrow">Личное приглашение от <span id="introFrom"></span></p><h2 id="introTitle"></h2><p>Никаких входов, камеры или оплаты. Только одна маленькая история.</p>
             <button class="game-button hot" data-next type="button">Открыть послание <span>→</span></button><button class="text-button" data-decline type="button">Не сейчас</button>
           </section>
