@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="./desktop-wizard.css">
   <link rel="stylesheet" href="./envelope-fix.css">
   <link rel="stylesheet" href="./message-cards.css">
+  <link rel="stylesheet" href="./first-screen.css">
 </head>
 <body data-theme="tender">
   <div class="ambient" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -67,7 +68,18 @@
           </div>
           <div class="builder-panel active" data-builder-panel="1">
           <div class="step-label" id="inviteSetup"><span>01</span> Приглашение</div>
+          <p class="field-help">Настрой первый экран ровно в том порядке, в котором его увидит получатель.</p>
+          <div class="themes" role="group" aria-label="Тип первого экрана">
+            <button type="button" class="theme active" data-theme="tender" aria-pressed="true"><b>♥</b><span>Искренне<small>«У меня для тебя кое-что тёплое»</small></span></button>
+            <button type="button" class="theme" data-theme="playful" aria-pressed="false"><b>✦</b><span>С улыбкой<small>«Кажется, намечается авантюра»</small></span></button>
+            <button type="button" class="theme" data-theme="mystery" aria-pressed="false"><b>☾</b><span>Загадочно<small>«Послание из нашего будущего»</small></span></button>
+            <button type="button" class="theme" data-theme="bold" aria-pressed="false"><b>⚡</b><span>Смело<small>«Отложи планы — есть идея лучше»</small></span></button>
+            <button type="button" class="theme" data-theme="cozy" aria-pressed="false"><b>☕</b><span>Уютно<small>«Давай исчезнем от суеты»</small></span></button>
+            <button type="button" class="theme" data-theme="minimal" aria-pressed="false"><b>○</b><span>Просто<small>«Есть предложение. Откроешь?»</small></span></button>
+          </div>
           <div class="field-row"><label>Твоё имя<input id="from" maxlength="40" value="Маша"></label><label>Для кого<input id="to" maxlength="40" value="Саша"></label></div>
+          <label>Фраза после имени<input id="openingText" maxlength="120" value="у меня для тебя кое-что тёплое."></label>
+          <label>Пояснение первого экрана<textarea id="openingNote" maxlength="180">Никаких входов, камеры или оплаты. Только одна маленькая история.</textarea></label>
           <label class="upload-card">Фото на конверт<input id="coverPhoto" type="file" accept="image/*"><span>📷 Выбрать фото с телефона<small>Уменьшим автоматически; фото хранится в ссылке</small></span></label>
           <label>Личное послание<textarea id="message" maxlength="280">Мне хорошо с тобой, и я хочу провести вместе ещё один красивый вечер.</textarea><small><span id="messageCount">0</span>/280</small></label>
           <p class="suggestions-title">Готовые варианты послания</p>
@@ -90,15 +102,6 @@
           <div class="builder-panel" data-builder-panel="2">
           <div class="step-label" id="dateSetup"><span>02</span> Когда можно выбирать</div>
           <div class="field-row"><label>Не раньше<input id="dateFrom" type="date"></label><label>Не позже<input id="dateTo" type="date"></label></div><p class="field-help">Получатель выберет точные дату и время внутри этого периода.</p>
-          <div class="step-label"><span>01</span> Настроение конверта</div>
-          <div class="themes" role="group" aria-label="Настроение приглашения">
-            <button type="button" class="theme active" data-theme="tender" aria-pressed="true"><b>♥</b><span>Искренне<small>«У меня для тебя кое-что тёплое»</small></span></button>
-            <button type="button" class="theme" data-theme="playful" aria-pressed="false"><b>✦</b><span>С улыбкой<small>«Кажется, намечается авантюра»</small></span></button>
-            <button type="button" class="theme" data-theme="mystery" aria-pressed="false"><b>☾</b><span>Загадочно<small>«Послание из нашего будущего»</small></span></button>
-            <button type="button" class="theme" data-theme="bold" aria-pressed="false"><b>⚡</b><span>Смело<small>«Отложи планы — есть идея лучше»</small></span></button>
-            <button type="button" class="theme" data-theme="cozy" aria-pressed="false"><b>☕</b><span>Уютно<small>«Давай исчезнем от суеты»</small></span></button>
-            <button type="button" class="theme" data-theme="minimal" aria-pressed="false"><b>○</b><span>Просто<small>«Есть предложение. Откроешь?»</small></span></button>
-          </div>
           <label>Маленькая улика<select id="clue"><option value="coffee">Аромат кофе</option><option value="city">Огни города</option><option value="cinema">Кино после титров</option><option value="surprise">Полный сюрприз</option></select></label>
           </div>
           <div class="builder-panel" data-builder-panel="4">
@@ -116,7 +119,7 @@
           <div class="quest-top"><span class="mini-brand">DQ</span><div class="progress" aria-label="Прогресс"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span id="stepText">1 / 7</span></div>
           <section class="scene active" data-scene="0">
             <div class="envelope" aria-hidden="true"><div class="envelope-back"></div><div class="letter-mini"><img id="coverPreview" alt=""><span id="coverFallback">для тебя<br>♥</span></div><div class="envelope-front"></div><div class="envelope-flap"></div><div class="wax" id="waxMark">♥</div></div>
-            <p class="eyebrow">Личное приглашение от <span id="introFrom"></span></p><h2 id="introTitle"></h2><p>Никаких входов, камеры или оплаты. Только одна маленькая история.</p>
+            <p class="eyebrow">Личное приглашение от <span id="introFrom"></span></p><h2 id="introTitle"></h2><p id="introNote">Никаких входов, камеры или оплаты. Только одна маленькая история.</p>
             <button class="game-button hot" data-next type="button">Открыть послание <span>→</span></button><button class="text-button" data-decline type="button">Не сейчас</button>
           </section>
           <section class="scene" data-scene="1"><div class="clue-orbit"><span id="clueIcon">☕</span><i></i><i></i><i></i></div><p class="eyebrow">Первая улика</p><h2>На что похож этот вечер?</h2><p>Здесь нет неправильного ответа — выбери ощущение, которое тебе ближе.</p><div class="clue-options"><button type="button" data-feel="уютно">Уютно</button><button type="button" data-feel="спонтанно">Спонтанно</button><button type="button" data-feel="загадочно">Загадочно</button></div><button class="text-button" data-next type="button">Пропустить →</button></section>
