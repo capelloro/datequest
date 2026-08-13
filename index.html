@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./enhancements.css">
   <link rel="stylesheet" href="./builder.css">
+  <link rel="stylesheet" href="./desktop-wizard.css">
 </head>
 <body data-theme="tender">
   <div class="ambient" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -44,7 +45,8 @@
       <div class="section-heading"><p class="kicker">Твоя история</p><h2>Добавь детали.<br>Магию мы уже собрали.</h2></div>
       <div class="studio-grid">
         <form class="editor glass" id="editor" autocomplete="off">
-          <nav class="builder-steps" aria-label="Этапы настройки"><a href="#inviteSetup"><b>1</b>Приглашение</a><a href="#dateSetup"><b>2</b>Дата</a><a href="#activitySetup"><b>3</b>Активность</a><a href="#replySetup"><b>4</b>Финал</a></nav>
+          <nav class="builder-steps" aria-label="Этапы настройки"><button type="button" class="active" data-builder-step="1"><b>1</b>Приглашение</button><button type="button" data-builder-step="2"><b>2</b>Дата</button><button type="button" data-builder-step="3"><b>3</b>Активность</button><button type="button" data-builder-step="4"><b>4</b>Финал</button></nav>
+          <div class="builder-panel" data-builder-panel="3">
           <div class="step-label" id="activitySetup"><span>03</span> Выбери готовую идею</div>
           <div class="idea-picker" id="ideaPicker" role="group" aria-label="Готовые идеи свиданий">
             <button type="button" class="idea active" data-idea="coffee"><b>☕</b><span>Кофе + прогулка<small>Уютно · 2 часа</small></span></button>
@@ -60,12 +62,16 @@
             <button type="button" class="idea" data-idea="photo"><b>📷</b><span>Фотоохота<small>7 кадров по секретному списку</small></span></button>
             <button type="button" class="idea" data-idea="custom"><b>✦</b><span>Своя идея<small>Начать с чистого листа</small></span></button>
           </div>
+          </div>
+          <div class="builder-panel active" data-builder-panel="1">
           <div class="step-label" id="inviteSetup"><span>01</span> Приглашение</div>
           <div class="field-row"><label>Твоё имя<input id="from" maxlength="40" value="Маша"></label><label>Для кого<input id="to" maxlength="40" value="Саша"></label></div>
           <label class="upload-card">Фото на конверт<input id="coverPhoto" type="file" accept="image/*"><span>📷 Выбрать фото с телефона<small>Уменьшим автоматически; фото хранится в ссылке</small></span></label>
           <label>Личное послание<textarea id="message" maxlength="280">Мне хорошо с тобой, и я хочу провести вместе ещё один красивый вечер.</textarea><small><span id="messageCount">0</span>/280</small></label>
           <div class="copy-suggestions"><button type="button" data-copy="{name}, есть идея для нас двоих 💡 Пойдёшь со мной на свидание?">Есть идея для нас двоих 💡</button><button type="button" data-copy="{name}, давно хочу позвать тебя на свидание 🌷">Давно хочу позвать тебя 🌷</button><button type="button" data-copy="{name}, пойдём вкусно поесть и погулять? 😋">Пойдём вкусно поесть? 😋</button></div>
           <div class="field-row"><label>Идея места<input id="place" maxlength="80" value="кофейня с видом на город"></label><label>Когда<input id="date" type="datetime-local"></label></div>
+          </div>
+          <div class="builder-panel" data-builder-panel="2">
           <div class="step-label" id="dateSetup"><span>02</span> Когда можно выбирать</div>
           <div class="field-row"><label>Не раньше<input id="dateFrom" type="date"></label><label>Не позже<input id="dateTo" type="date"></label></div><p class="field-help">Получатель выберет точные дату и время внутри этого периода.</p>
           <div class="step-label"><span>01</span> Настроение конверта</div>
@@ -75,12 +81,16 @@
             <button type="button" class="theme" data-theme="mystery" aria-pressed="false"><b>☾</b><span>Тайна<small>Ночь и загадки</small></span></button>
           </div>
           <label>Маленькая улика<select id="clue"><option value="coffee">Аромат кофе</option><option value="city">Огни города</option><option value="cinema">Кино после титров</option><option value="surprise">Полный сюрприз</option></select></label>
+          </div>
+          <div class="builder-panel" data-builder-panel="4">
           <div class="step-label" id="replySetup"><span>04</span> Куда прислать ответ</div>
           <div class="field-row"><label>Канал<select id="replyChannel"><option value="whatsapp">WhatsApp</option><option value="email">Email</option><option value="telegram">Telegram</option></select></label><label>Телефон или адрес<input id="replyContact" maxlength="100" value="" placeholder="+79990000000"></label></div>
           <p class="field-help" id="contactHelp">Получатель откроет ваш чат WhatsApp с готовым ответом и сам подтвердит отправку.</p>
           <div class="privacy-note"><span>⌁</span><p><strong>Личные детали живут в ссылке.</strong> Не указывай домашний адрес или то, чем не готов(а) поделиться с получателем.</p></div>
           <button class="button primary full" id="copy" type="button">Скопировать волшебную ссылку <span>↗</span></button>
           <div class="status" id="builderStatus" role="status" aria-live="polite"></div>
+          </div>
+          <div class="builder-navigation"><button type="button" class="button secondary" id="builderPrev">← Назад</button><span id="builderStepLabel">Шаг 1 из 4</span><button type="button" class="button primary" id="builderNext">Дальше →</button></div>
         </form>
 
         <div class="preview-wrap"><div class="preview-label"><span>Живое превью</span><button id="restart" type="button">Начать сначала ↻</button></div><div class="device"><div class="device-camera"></div><div class="quest" id="quest">
