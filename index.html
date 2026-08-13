@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="./first-screen.css">
   <link rel="stylesheet" href="./board-game.css">
   <link rel="stylesheet" href="./wizard-ux.css">
+  <link rel="stylesheet" href="./envelope-final.css">
 </head>
 <body data-theme="tender">
   <div class="ambient" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -104,7 +105,6 @@
           <div class="builder-panel" data-builder-panel="2">
           <div class="step-label" id="dateSetup"><span>02</span> Когда можно выбирать</div>
           <div class="field-row"><label>Не раньше<input id="dateFrom" type="date"></label><label>Не позже<input id="dateTo" type="date"></label></div><p class="field-help">Получатель выберет точные дату и время внутри этого периода.</p>
-          <label>Маленькая улика<select id="clue"><option value="coffee">Аромат кофе</option><option value="city">Огни города</option><option value="cinema">Кино после титров</option><option value="surprise">Полный сюрприз</option></select></label>
           </div>
           <div class="builder-panel" data-builder-panel="4">
           <div class="step-label" id="replySetup"><span>04</span> Куда прислать ответ</div>
@@ -120,11 +120,11 @@
         <div class="preview-wrap"><div class="preview-label"><span>Живое превью</span><button id="restart" type="button">Начать сначала ↻</button></div><div class="device"><div class="device-camera"></div><div class="quest" id="quest">
           <div class="quest-top"><span class="mini-brand">DQ</span><div class="progress" aria-label="Прогресс"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span id="stepText">1 / 7</span></div>
           <section class="scene active" data-scene="0">
-            <div class="envelope" aria-hidden="true"><div class="envelope-back"></div><div class="letter-mini"><img id="coverPreview" alt=""><span id="coverFallback">для тебя<br>♥</span></div><div class="envelope-front"></div><div class="envelope-flap"></div><div class="wax" id="waxMark">♥</div></div>
+            <div class="envelope" aria-hidden="true"><div class="envelope-back"></div><div class="letter-mini"><img id="coverPreview" alt=""><span id="coverFallback">для тебя<br>♥</span></div><div class="envelope-fold fold-left"></div><div class="envelope-fold fold-right"></div><div class="envelope-front"></div><div class="envelope-flap"></div><div class="wax" id="waxMark">♥</div></div>
             <p class="eyebrow">Личное приглашение от <span id="introFrom"></span></p><h2 id="introTitle"></h2><p id="introNote">Никаких входов, камеры или оплаты. Только одна маленькая история.</p>
             <button class="game-button hot" data-next type="button">Открыть послание <span>→</span></button><button class="text-button" data-decline type="button">Не сейчас</button>
           </section>
-          <section class="scene board-scene" data-scene="1"><span id="clueIcon" hidden></span><div class="board-table"><div class="board-path" aria-hidden="true"><i>1</i><i>2</i><i>3</i><i>4</i><i>♥</i></div><p class="eyebrow">Раунд 1 · карта вечера</p><h2>Какой вайб берём с собой?</h2><p>Выбери карту — она станет частью вашего общего сценария.</p><div class="mood-deck">
+          <section class="scene board-scene" data-scene="1"><div class="board-table"><div class="board-path" aria-hidden="true"><i>1</i><i>2</i><i>3</i><i>4</i><i>♥</i></div><p class="eyebrow">Раунд 1 · карта вечера</p><h2>Какой вайб берём с собой?</h2><p>Выбери карту — она станет частью вашего общего сценария.</p><div class="mood-deck">
             <button type="button" data-feel="уютно"><b>☕</b><span>Уютно<small>Тёплый свет, долгий разговор и никакой спешки</small></span></button>
             <button type="button" data-feel="спонтанно"><b>🎲</b><span>Спонтанно<small>План может измениться после первого броска</small></span></button>
             <button type="button" data-feel="загадочно"><b>🔮</b><span>Загадочно<small>Не раскрывать все детали до самой встречи</small></span></button>
