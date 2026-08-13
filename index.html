@@ -70,7 +70,21 @@
           <div class="field-row"><label>Твоё имя<input id="from" maxlength="40" value="Маша"></label><label>Для кого<input id="to" maxlength="40" value="Саша"></label></div>
           <label class="upload-card">Фото на конверт<input id="coverPhoto" type="file" accept="image/*"><span>📷 Выбрать фото с телефона<small>Уменьшим автоматически; фото хранится в ссылке</small></span></label>
           <label>Личное послание<textarea id="message" maxlength="280">Мне хорошо с тобой, и я хочу провести вместе ещё один красивый вечер.</textarea><small><span id="messageCount">0</span>/280</small></label>
-          <div class="copy-suggestions"><button type="button" data-copy="{name}, есть идея для нас двоих 💡 Пойдёшь со мной на свидание?">Есть идея для нас двоих 💡</button><button type="button" data-copy="{name}, давно хочу позвать тебя на свидание 🌷">Давно хочу позвать тебя 🌷</button><button type="button" data-copy="{name}, пойдём вкусно поесть и погулять? 😋">Пойдём вкусно поесть? 😋</button></div>
+          <p class="suggestions-title">Готовые варианты послания</p>
+          <div class="copy-suggestions">
+            <button type="button" data-copy="{name}, есть идея для нас двоих 💡 Пойдёшь со мной на свидание?"><b>Маленькая идея 💡</b><span>{name}, есть идея для нас двоих. Пойдёшь со мной на свидание?</span></button>
+            <button type="button" data-copy="{name}, давно хочу позвать тебя на свидание 🌷 Кажется, сейчас самое время."><b>Давно хотел(а) сказать 🌷</b><span>{name}, давно хочу позвать тебя на свидание. Кажется, сейчас самое время.</span></button>
+            <button type="button" data-copy="{name}, пойдём вкусно поесть и погулять? 😋 Я знаю одно хорошее место."><b>Вкусно и легко 😋</b><span>{name}, пойдём вкусно поесть и погулять? Я знаю одно хорошее место.</span></button>
+            <button type="button" data-copy="{name}, хочу украсть тебя у рутины на один красивый вечер ✨ Что скажешь?"><b>Побег от рутины ✨</b><span>{name}, хочу украсть тебя у рутины на один красивый вечер. Что скажешь?</span></button>
+            <button type="button" data-copy="{name}, мне очень нравится проводить с тобой время. Хочу пригласить тебя на настоящее свидание 💛"><b>Прямо и искренне 💛</b><span>{name}, мне очень нравится проводить с тобой время. Хочу пригласить тебя на настоящее свидание.</span></button>
+            <button type="button" data-copy="{name}, предлагаю проверить одну теорию: мы + хороший вечер = отличная идея 🧪"><b>Научный подход 🧪</b><span>{name}, предлагаю проверить теорию: мы + хороший вечер = отличная идея.</span></button>
+            <button type="button" data-copy="{name}, у меня есть свободный вечер, одна симпатия и очень конкретный вопрос: пойдёшь со мной? 😏"><b>С лёгким флиртом 😏</b><span>{name}, у меня есть свободный вечер, одна симпатия и вопрос: пойдёшь со мной?</span></button>
+            <button type="button" data-copy="{name}, давай устроим вечер, после которого захочется сказать: хорошо, что мы это придумали 🥰"><b>Будущее воспоминание 🥰</b><span>{name}, давай устроим вечер, после которого захочется сказать: хорошо, что мы это придумали.</span></button>
+            <button type="button" data-copy="{name}, никаких сложных планов: уютное место, хороший разговор и мы вдвоём ☕"><b>Спокойный вечер ☕</b><span>{name}, никаких сложных планов: уютное место, хороший разговор и мы вдвоём.</span></button>
+            <button type="button" data-copy="{name}, хочу увидеть город твоими глазами. Покажешь мне одно из своих любимых мест? 🌆"><b>Твоё любимое место 🌆</b><span>{name}, хочу увидеть город твоими глазами. Покажешь одно из любимых мест?</span></button>
+            <button type="button" data-copy="{name}, выбирай красивый образ — остальной план вечера беру на себя 💫"><b>План беру на себя 💫</b><span>{name}, выбирай красивый образ — остальной план вечера беру на себя.</span></button>
+            <button type="button" data-copy="{name}, у этого сообщения только одна цель: узнать, когда мы наконец идём на свидание? 🙌"><b>Без лишних слов 🙌</b><span>{name}, у этого сообщения одна цель: узнать, когда мы наконец идём на свидание?</span></button>
+          </div>
           <div class="field-row"><label>Идея места<input id="place" maxlength="80" value="кофейня с видом на город"></label><label>Когда<input id="date" type="datetime-local"></label></div>
           </div>
           <div class="builder-panel" data-builder-panel="2">
