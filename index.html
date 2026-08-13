@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="./board-game.css">
   <link rel="stylesheet" href="./wizard-ux.css">
   <link rel="stylesheet" href="./envelope-final.css">
+  <link rel="stylesheet" href="./preference-picker.css">
 </head>
 <body data-theme="tender">
   <div class="ambient" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -53,7 +54,9 @@
         <form class="editor glass" id="editor" autocomplete="off">
           <nav class="builder-steps" aria-label="Этапы настройки"><button type="button" class="active" data-builder-step="1"><b>1</b>Приглашение</button><button type="button" data-builder-step="2"><b>2</b>Дата</button><button type="button" data-builder-step="3"><b>3</b>Активность</button><button type="button" data-builder-step="4"><b>4</b>Финал</button></nav>
           <div class="builder-panel" data-builder-panel="3">
-          <div class="step-label" id="activitySetup"><span>03</span> Выбери готовую идею</div>
+          <div class="step-label" id="activitySetup"><span>03</span> Что ей / ему действительно нравится?</div>
+          <p class="field-help">Выбери от 3 до 6 вариантов. Игра подберёт лучший план только из этого набора.</p>
+          <div class="idea-selection-status"><span id="ideaCount">Выбрано: 3 из 6</span><b id="ideaValidation">Можно продолжать</b></div>
           <div class="idea-picker" id="ideaPicker" role="group" aria-label="Готовые идеи свиданий">
             <button type="button" class="idea active" data-idea="coffee"><b>☕</b><span>Кофе + прогулка<small>Уютно · 2 часа</small></span></button>
             <button type="button" class="idea" data-idea="sunset"><b>🌇</b><span>Закат с термосом<small>Романтично · недорого</small></span></button>
@@ -133,7 +136,7 @@
             <button type="button" data-feel="необычно"><b>🗺️</b><span>Необычно<small>Попробовать то, чего вы раньше не делали</small></span></button>
           </div><div class="board-result" id="boardResult" role="status" aria-live="polite"></div><button class="text-button" id="randomMood" type="button">🎲 Вытянуть случайную карту</button></div></section>
           <section class="scene" data-scene="2"><div class="constellation"><span>✦</span><i></i><i></i><i></i><i></i></div><p class="eyebrow">Раунд 2 · правило вечера</p><h2>Что сегодня особенно важно?</h2><p>Выберите одно правило вашей маленькой игры.</p><div class="choice-stack"><button type="button" data-token="без спешки">⏳ Никуда не спешить</button><button type="button" data-token="больше смеяться">😄 Рассмешить друг друга</button><button type="button" data-token="пробовать новое">✨ Попробовать новое</button><button type="button" data-token="убрать телефоны">📵 Убрать телефоны на час</button><button type="button" data-token="сделать общее фото">📷 Сделать одно общее фото</button></div></section>
-          <section class="scene" data-scene="3"><p class="eyebrow">Маршрут проявляется</p><h2 id="ideaTitle">Кофе + прогулка</h2><div class="route-card"><b id="ideaIcon">☕</b><p id="ideaDescription"></p><div class="route-line"><i></i><i></i><i></i></div></div><button class="game-button hot" data-next type="button">Посмотреть послание <span>→</span></button></section>
+          <section class="scene" data-scene="3"><p class="eyebrow">Карты сложились</p><h2 id="ideaTitle">Кофе + прогулка</h2><div class="route-card"><b id="ideaIcon">☕</b><p id="ideaDescription"></p><div class="match-reason" id="matchReason"></div><div class="route-line"><i></i><i></i><i></i></div></div><button class="game-button hot" data-next type="button">Берём этот план <span>→</span></button><button class="text-button" id="rerollPlan" type="button">🎲 Другой вариант из подходящих</button></section>
           <section class="scene" data-scene="4"><div class="paper"><p class="paper-mark">✦ &nbsp; ПОСЛАНИЕ &nbsp; ✦</p><h2 id="letterTo"></h2><p id="letterText"></p><div class="details"><span id="placePill"></span><span id="datePill"></span></div><small>Точные детали всегда можно уточнить вместе.</small></div><button class="game-button hot" data-next type="button">Ещё один выбор <span>→</span></button></section>
           <section class="scene" data-scene="5"><div class="soft-heart">◇</div><p class="eyebrow">Твой штрих к плану</p><h2>Что обязательно добавить?</h2><p>Выбор попадёт в ответ автору приглашения.</p><div class="choice-stack"><button type="button" data-extra="десерт">Что-нибудь вкусное</button><button type="button" data-extra="музыку">Музыку</button><button type="button" data-extra="маленький сюрприз">Маленький сюрприз</button><button type="button" data-extra="ничего — план идеален">Ничего, план идеален</button></div></section>
           <section class="scene" data-scene="6"><div class="soft-heart">◷</div><p class="eyebrow">Почти договорились</p><h2>Когда тебе удобно?</h2><p id="dateHint">Выбери дату и время — они попадут в ответ.</p><label class="guest-date">Дата и время<input id="guestDate" type="datetime-local"></label><button class="game-button hot" id="confirmDate" type="button" disabled>Подтвердить время <span>→</span></button></section>
