@@ -1,0 +1,9 @@
+{
+  "name": "DateQuest — послание из будущей встречи",
+  "short_name": "DateQuest",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#100914",
+  "theme_color": "#130b1a",
+  "icons": []
+}

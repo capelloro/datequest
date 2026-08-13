@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#130b1a">
+  <meta name="description" content="DateQuest — маленькое личное приключение, которое заканчивается настоящей встречей.">
+  <meta property="og:title" content="Для тебя есть маленькое послание 💌">
+  <meta property="og:description" content="Открой, когда будет минутка. Без регистрации и лишних вопросов.">
+  <meta property="og:image" content="./assets/datequest-world.png">
+  <title>DateQuest — послание из будущего 💌</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body data-theme="tender">
+  <div class="ambient" aria-hidden="true"><i></i><i></i><i></i></div>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="DateQuest — на главную"><span>DQ</span>DateQuest</a>
+    <button class="quiet-button" id="privacyOpen" type="button">Как это работает</button>
+  </header>
+
+  <main>
+    <section class="landing" id="landing">
+      <div class="landing-copy">
+        <p class="kicker">Свидание начинается до встречи</p>
+        <h1>Не просто «пойдём?».<br><em>Маленькое приключение.</em></h1>
+        <p class="lead">Создай личное послание за пару минут. Оно откроется как интерактивная история — бережная, красивая и без неловкого давления.</p>
+        <div class="landing-actions">
+          <a class="button primary" href="#studio">Создать приглашение <span>→</span></a>
+          <button class="button secondary" id="demo" type="button">Посмотреть демо</button>
+        </div>
+        <div class="trust-row" aria-label="Преимущества"><span>✦ Без аккаунта</span><span>✦ Меньше минуты</span><span>✦ Любой ответ — нормален</span></div>
+      </div>
+      <div class="world-card" aria-label="Волшебный мир DateQuest">
+        <img src="./assets/datequest-world.png" alt="Светящийся конверт в маленьком ночном мире">
+        <div class="world-glow"></div><span class="float-icon icon-heart">♥</span><span class="float-icon icon-star">✦</span>
+        <div class="world-caption"><span>Послание из будущей встречи</span><strong>Открой историю →</strong></div>
+      </div>
+    </section>
+
+    <section class="studio" id="studio">
+      <div class="section-heading"><p class="kicker">Твоя история</p><h2>Добавь детали.<br>Магию мы уже собрали.</h2></div>
+      <div class="studio-grid">
+        <form class="editor glass" id="editor" autocomplete="off">
+          <div class="step-label"><span>01</span> Главное</div>
+          <div class="field-row"><label>Твоё имя<input id="from" maxlength="40" value="Маша"></label><label>Для кого<input id="to" maxlength="40" value="Саша"></label></div>
+          <label>Личное послание<textarea id="message" maxlength="280">Мне хорошо с тобой, и я хочу провести вместе ещё один красивый вечер.</textarea><small><span id="messageCount">0</span>/280</small></label>
+          <div class="field-row"><label>Идея места<input id="place" maxlength="80" value="кофейня с видом на город"></label><label>Когда<input id="date" type="datetime-local"></label></div>
+          <div class="step-label"><span>02</span> Настроение</div>
+          <div class="themes" role="group" aria-label="Настроение приглашения">
+            <button type="button" class="theme active" data-theme="tender" aria-pressed="true"><b>◉</b><span>Нежно<small>Тепло и искренне</small></span></button>
+            <button type="button" class="theme" data-theme="playful" aria-pressed="false"><b>✦</b><span>Игриво<small>Легко и смело</small></span></button>
+            <button type="button" class="theme" data-theme="mystery" aria-pressed="false"><b>☾</b><span>Тайна<small>Ночь и загадки</small></span></button>
+          </div>
+          <label>Маленькая улика<select id="clue"><option value="coffee">Аромат кофе</option><option value="city">Огни города</option><option value="cinema">Кино после титров</option><option value="surprise">Полный сюрприз</option></select></label>
+          <div class="privacy-note"><span>⌁</span><p><strong>Личные детали живут в ссылке.</strong> Не указывай домашний адрес или то, чем не готов(а) поделиться с получателем.</p></div>
+          <button class="button primary full" id="copy" type="button">Скопировать волшебную ссылку <span>↗</span></button>
+          <div class="status" id="builderStatus" role="status" aria-live="polite"></div>
+        </form>
+
+        <div class="preview-wrap"><div class="preview-label"><span>Живое превью</span><button id="restart" type="button">Начать сначала ↻</button></div><div class="device"><div class="device-camera"></div><div class="quest" id="quest">
+          <div class="quest-top"><span class="mini-brand">DQ</span><div class="progress" aria-label="Прогресс"><i class="on"></i><i></i><i></i><i></i></div><span id="stepText">1 / 4</span></div>
+          <section class="scene active" data-scene="0">
+            <div class="envelope" aria-hidden="true"><div class="envelope-back"></div><div class="letter-mini">для тебя<br><span>♥</span></div><div class="envelope-front"></div><div class="envelope-flap"></div><div class="wax">DQ</div></div>
+            <p class="eyebrow">Личное приглашение от <span id="introFrom"></span></p><h2 id="introTitle"></h2><p>Никаких входов, камеры или оплаты. Только одна маленькая история.</p>
+            <button class="game-button hot" data-next type="button">Открыть послание <span>→</span></button><button class="text-button" data-decline type="button">Не сейчас</button>
+          </section>
+          <section class="scene" data-scene="1"><div class="clue-orbit"><span id="clueIcon">☕</span><i></i><i></i><i></i></div><p class="eyebrow">Первая улика</p><h2>На что похож этот вечер?</h2><p>Здесь нет неправильного ответа — выбери ощущение, которое тебе ближе.</p><div class="clue-options"><button type="button" data-feel="уютно">Уютно</button><button type="button" data-feel="спонтанно">Спонтанно</button><button type="button" data-feel="загадочно">Загадочно</button></div><button class="text-button" data-next type="button">Пропустить →</button></section>
+          <section class="scene" data-scene="2"><div class="paper"><p class="paper-mark">✦ &nbsp; ПОСЛАНИЕ &nbsp; ✦</p><h2 id="letterTo"></h2><p id="letterText"></p><div class="details"><span id="placePill"></span><span id="datePill"></span></div><small>Точные детали всегда можно уточнить вместе.</small></div><button class="game-button hot" data-next type="button">Ответить честно <span>→</span></button></section>
+          <section class="scene" data-scene="3"><div class="soft-heart">♥</div><p class="eyebrow">Самое главное</p><h2>Хочешь встретиться?</h2><p>Выбирай свободно. Здесь нет «правильной» кнопки.</p><div class="rsvp"><button class="game-button hot" data-answer="yes" type="button">Да, с радостью</button><button class="game-button pale" data-answer="maybe" type="button">Давай другой вариант</button><button class="game-button plain" data-answer="no" type="button">Спасибо, но не смогу</button></div></section>
+          <section class="scene final" data-scene="4"><div class="final-symbol" id="finalSymbol">✦</div><p class="eyebrow" id="finalEyebrow">Ответ готов</p><h2 id="finalTitle"></h2><p id="finalCopy"></p><div class="reply-card"><span>Сообщение для <b id="replyTo"></b></span><p id="replyText"></p></div><button class="game-button hot" id="shareReply" type="button">Отправить ответ <span>↗</span></button><button class="text-button" id="copyReply" type="button">Скопировать текст</button><small class="honest-note">Ответ не отправляется автоматически.</small></section>
+        </div></div></div>
+      </div>
+    </section>
+  </main>
+  <footer><a class="brand" href="./"><span>DQ</span>DateQuest</a><p>Маленькие истории для настоящих встреч.</p><button id="privacyFooter" type="button">Приватность</button></footer>
+  <dialog id="privacyDialog"><button class="dialog-close" id="privacyClose" aria-label="Закрыть">×</button><p class="kicker">Честно о данных</p><h2>Никаких скрытых шагов.</h2><p>DateQuest работает прямо в браузере. Приглашение кодируется в ссылке — это не шифрование. Любой, у кого есть ссылка, сможет прочитать её содержимое.</p><ul><li>Мы не просим аккаунт, камеру или геолокацию.</li><li>Ответ не уходит автоматически: получатель сам отправляет его через мессенджер.</li><li>Не добавляйте домашний адрес и чувствительные данные.</li></ul><button class="button primary full" id="privacyDone">Понятно</button></dialog>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <script src="./app.js" defer></script>
+</body>
+</html>
